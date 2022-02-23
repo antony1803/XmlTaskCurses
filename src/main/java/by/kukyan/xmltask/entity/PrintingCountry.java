@@ -7,19 +7,19 @@ public enum PrintingCountry {
     POLAND("Poland"),
     RUSSIA("Russia");
 
-    private final String namesOfCountries;
+    private final String value;
 
     PrintingCountry(String val){
-        namesOfCountries = val;
+        value = val;
     }
 
-    public String getCountries(){
-        return namesOfCountries;
+    public String getValue(){
+        return value;
     }
 
     public static PrintingCountry getCountryFromString(String temp){
         for(var count : PrintingCountry.values()){
-            if(count.namesOfCountries.equalsIgnoreCase(temp)){
+            if(count.value.equalsIgnoreCase(temp)){
                 return count;
             }
         }

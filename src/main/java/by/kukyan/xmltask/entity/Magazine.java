@@ -16,6 +16,10 @@ public class Magazine extends AbstractPaper {
         isGlossy = glossy;
     }
 
+    public static Magazine setNewMagazine(AbstractPaper paper, boolean isGlossy, Periodicity period, boolean subsriable){
+        return new Magazine(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), isGlossy, period, subsriable);
+    }
+
     public boolean isSubsriable() {
         return isSubsriable;
     }

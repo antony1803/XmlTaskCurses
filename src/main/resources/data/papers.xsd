@@ -23,6 +23,7 @@
             <element name="size" type="integer"/>
             <element name="monthly" type="boolean"/>
             <element name="coloured" type="boolean"/>
+            <element name="type" type="tns:pressType"/>
         </sequence>
         <attribute name="id" use="required" type="tns:paperId"/>
         <attribute name="printing-country" use="optional" type="tns:country"/>

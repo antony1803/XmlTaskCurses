@@ -8,6 +8,7 @@
         <size>20</size>
         <monthly>true</monthly>
         <coloured>true</coloured>
+        <type>paper</type>
         <subscription-index>true</subscription-index>
         <periodicity>P1D</periodicity>
     </paper>
@@ -17,6 +18,7 @@
         <size>12</size>
         <monthly>false</monthly>
         <coloured>false</coloured>
+        <type>paper</type>
         <subscription-index>false</subscription-index>
         <periodicity/>
     </paper>    
@@ -26,6 +28,7 @@
         <size>5</size>
         <monthly>true</monthly>
         <coloured>true</coloured>
+        <type>booklet</type>
         <glossy>false</glossy>
     </booklet>
     
@@ -34,6 +37,7 @@
         <size>50</size>
         <monthly>true</monthly>
         <coloured>true</coloured>
+        <type>magazine</type>
         <subscription-index>true</subscription-index>
         <periodicity>P1M</periodicity>
         <glossy>true</glossy>
@@ -44,6 +48,7 @@
         <size>1</size>
         <monthly>false</monthly>
         <coloured>true</coloured>
+        <type>booklet</type>
         <glossy>true</glossy>
     </booklet>
     
@@ -52,6 +57,7 @@
         <size>20</size>
         <monthly>true</monthly>
         <coloured>false</coloured>
+        <type>paper</type>
         <subscription-index>true</subscription-index>
         <periodicity>P7D</periodicity>
     </paper>

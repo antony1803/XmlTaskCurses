@@ -7,9 +7,13 @@ public class Booklet extends AbstractPaper{
         super();
     }
 
-    public Booklet(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, boolean glossy, Periodicity period, boolean subsriable) {
+    public Booklet(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, boolean glossy) {
         super(newId, newCountry, newTitle, newSize, coloured, monthly);
         isGlossy = glossy;
+    }
+
+    public static Booklet setNewBooklet(AbstractPaper paper, boolean isGlossy){
+        return new Booklet(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), isGlossy);
     }
 
     public boolean isGlossy() {

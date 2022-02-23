@@ -8,10 +8,14 @@ public class Paper extends AbstractPaper{
         super();
     }
 
-    public Paper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, boolean glossy, Periodicity period, boolean subsriable){
+    public Paper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, Periodicity period, boolean subsriable){
         super(newId, newCountry, newTitle, newSize, coloured, monthly);
         isSubsriable = subsriable;
         periodicity =period;
+    }
+
+    public static Paper setNewPaper(AbstractPaper paper, Periodicity period, boolean subsriable){
+        return new Paper(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), period, subsriable);
     }
 
     public boolean isSubsriable() {
