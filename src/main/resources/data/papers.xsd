@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.kukyan.com/papers"
+        xmlns:tns="http://www.kukyan.com/papers"
+        elementFormDefault="qualified">
+
+    <element name="papers">
+        <complexType>
+            <sequence>
+                <element ref="tns:press" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="press" type="tns:printedPress" abstract="true"/>
+    <element name="magazine" type="tns:magazine" substitutionGroup="tns:press"/>
+    <element name="paper" type="tns:paper" substitutionGroup="tns:press"/>
+    <element name="booklet" type="tns:booklet" substitutionGroup="tns:press"/>
+
+    <complexType name="printedPress">
+        <sequence>
+            <element name="title" type="string"/>
+            <element name="size" type="integer"/>
+            <element name="monthly" type="boolean"/>
+            <element name="coloured" type="boolean"/>
+        </sequence>
+        <attribute name="id" use="required" type="tns:paperId"/>
+        <attribute name="printing-country" use="optional" type="tns:country"/>
+    </complexType>
+
+    <complexType name="magazine">
+        <complexContent>
+            <extension base="tns:printedPress">
+                <sequence>
+                    <element name="subscription-index" type="boolean" default="true"/>
+                    <element name="periodicity" type="duration" default="P1M"/>
+                    <element name="glossy" type="boolean"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="paper">
+        <complexContent>
+            <extension base="tns:printedPress">
+                <sequence>
+                    <element name="subscription-index" type="boolean" default="true"/>
+                    <element name="periodicity" type="duration" default="P7D"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="booklet">
+        <complexContent>
+            <extension base="tns:printedPress">
+                <sequence>
+                    <element name="glossy" type="boolean"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="pressType">
+        <restriction base="string" >
+            <enumeration value="magazine"/>
+            <enumeration value="paper"/>
+            <enumeration value="booklet"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="country">
+        <restriction base="string" >
+            <enumeration value="Belarus"/>
+            <enumeration value="England"/>
+            <enumeration value="Poland"/>
+            <enumeration value="USA"/>
+            <enumeration value="Russia"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="title">
+        <restriction base="string">
+            <minLength value="2"/>
+            <maxLength value="60"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="size">
+        <restriction base="integer">
+            <minInclusive value="1"/>
+            <maxInclusive value="150"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="paperId">
+        <restriction base="ID">
+            <pattern value="\w{2}-\d{5}"/>
+        </restriction>
+    </simpleType>
+
+</schema>

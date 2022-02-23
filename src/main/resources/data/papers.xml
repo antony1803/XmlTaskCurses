@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<papers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.kukyan.com/papers"
+          xsi:schemaLocation="http://www.kukyan.com/papers ../data/papers.xsd">
+
+    <paper id="ru-10000" printing-country="Russia">
+        <title>Вечерняя Москва</title>
+        <size>20</size>
+        <monthly>true</monthly>
+        <coloured>true</coloured>
+        <subscription-index>true</subscription-index>
+        <periodicity>P1D</periodicity>
+    </paper>
+
+    <paper id="us-10003" printing-country="USA">
+        <title>Some American Paper</title>
+        <size>12</size>
+        <monthly>false</monthly>
+        <coloured>false</coloured>
+        <subscription-index>false</subscription-index>
+        <periodicity/>
+    </paper>    
+    
+    <booklet id="po-10004" printing-country="Poland">
+        <title>Polska volast</title>
+        <size>5</size>
+        <monthly>true</monthly>
+        <coloured>true</coloured>
+        <glossy>false</glossy>
+    </booklet>
+    
+    <magazine id="en-10002" printing-country="England">
+        <title>Times</title>
+        <size>50</size>
+        <monthly>true</monthly>
+        <coloured>true</coloured>
+        <subscription-index>true</subscription-index>
+        <periodicity>P1M</periodicity>
+        <glossy>true</glossy>
+    </magazine>
+
+    <booklet id="by-10001" printing-country="Belarus">
+        <title>Орифлейм предлагает скидки</title>
+        <size>1</size>
+        <monthly>false</monthly>
+        <coloured>true</coloured>
+        <glossy>true</glossy>
+    </booklet>
+    
+    <paper id="al-10006">
+        <title>Аргументы и факты</title>
+        <size>20</size>
+        <monthly>true</monthly>
+        <coloured>false</coloured>
+        <subscription-index>true</subscription-index>
+        <periodicity>P7D</periodicity>
+    </paper>
+</papers>
