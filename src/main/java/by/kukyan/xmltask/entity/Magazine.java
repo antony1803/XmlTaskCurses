@@ -46,13 +46,19 @@ public class Magazine extends AbstractPaper {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Magazine)) return false;
+        if (this == o) {return true;}
+        if(o == null){return false;}
+        if (!(o instanceof Magazine)){return false;}
         Magazine second = (Magazine) o;
-        if (getCountry() != second.getCountry() || getId() != second.getId() || !getTitle().equals(second.getTitle()) || second.getSize() != getSize() || isMonthly() != second.isMonthly() || isColoured() != second.isColoured() || !periodicity.equals(second.periodicity) || isSubsriable != second.isSubsriable || isGlossy != second.isGlossy){
-            //периписать набором ifов
-            return false;
-        }
+        if (getCountry() != second.getCountry()){return false;}
+        if(getId() != second.getId()){return false;}
+        if(!getTitle().equals(second.getTitle())){return false;}
+        if(second.getSize() != getSize()){return false;}
+        if(isMonthly() != second.isMonthly()){return false;}
+        if(isColoured() != second.isColoured()){return false;}
+        if(!periodicity.equals(second.periodicity)){return false;}
+        if(isSubsriable != second.isSubsriable){return false;}
+        if(isGlossy != second.isGlossy){return false;}
         return true;
     }
 

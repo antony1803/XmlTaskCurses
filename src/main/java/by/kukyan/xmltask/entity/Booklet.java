@@ -26,8 +26,9 @@ public class Booklet extends AbstractPaper{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Booklet)) return false;
+        if (this == o) {return true;}
+        if (o == null){return false;}
+        if (!(o instanceof Booklet)) {return false;}
         Booklet second = (Booklet) o;
         if (getCountry() != second.getCountry()){return false;}
         if (getId() != second.getId()){return false;}
@@ -35,9 +36,7 @@ public class Booklet extends AbstractPaper{
         if (second.getSize() != getSize()){return false;}
         if (isMonthly() != second.isMonthly()){return false;}
         if (isColoured() != second.isColoured()){return false;}
-        if (isGlossy != second.isGlossy){
-            return false;
-        }
+        if (isGlossy != second.isGlossy){return false;}
         return true;
     }
 

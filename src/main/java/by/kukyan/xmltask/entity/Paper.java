@@ -36,8 +36,9 @@ public class Paper extends AbstractPaper{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Paper)) return false;
+        if (this == o){return true;}
+        if(o == null){return false;}
+        if (!(o instanceof Paper)){return false;}
         Paper second = (Paper) o;
         if (getCountry() != second.getCountry()){return false;}
         if (getId() != second.getId()){return false;}

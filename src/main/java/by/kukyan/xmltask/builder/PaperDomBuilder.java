@@ -37,10 +37,8 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
             URL resource = loader.getResource(path);
             Document document = documentBuilder.parse(resource.getFile());
             Element element = document.getDocumentElement();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
+        } catch (IOException | SAXException e) {
+            logger.error("Error while reading", e);
         }
     }
 

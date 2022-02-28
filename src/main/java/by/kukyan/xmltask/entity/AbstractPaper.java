@@ -69,13 +69,16 @@ public abstract class AbstractPaper {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AbstractPaper)) return false;
-
+        if (this == o) {return true;}
+        if(o == null){return false;}
+        if (!(o instanceof AbstractPaper)) {return false;}
         AbstractPaper second = (AbstractPaper) o;
-        if (country != second.country || id != second.id || !title.equals(second.title) || second.size != size || isMonthly != second.isMonthly || isColoured != second.isColoured){
-            return false;
-        }
+        if (country != second.country){return false;}
+        if (id != second.id){return false;}
+        if(!title.equals(second.title)){return false;}
+        if(second.size != size){return false;}
+        if(isMonthly != second.isMonthly){return false;}
+        if(isColoured != second.isColoured){return false;}
        return true;
     }
 

@@ -3,8 +3,8 @@
           xmlns="http://www.kukyan.com/papers"
           xsi:schemaLocation="http://www.kukyan.com/papers ../data/papers.xsd">
 
-    <paper id="ru-10000" printing-country="Russia">
-        <title>Вечерняя Москва</title>
+    <paper id="po-10000" printing-country="Poland">
+        <title>Вечерняя Варшава</title>
         <size>20</size>
         <monthly>true</monthly>
         <coloured>true</coloured>
