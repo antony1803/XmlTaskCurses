@@ -36,7 +36,7 @@ public class PaperHandler extends DefaultHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
+    public void startElement(String uri, String localName, String qName, Attributes attributes){
         if(qName.equals(PaperXmlTag.PAPER.getValue()) ||
             qName.equals(PaperXmlTag.BOOKLET.getValue())||
             qName.equals(PaperXmlTag.MAGAZINE.getValue())){
@@ -56,7 +56,7 @@ public class PaperHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException{
+    public void endElement(String uri, String localName, String qName){
         String paperTag = PaperXmlTag.PAPER.getValue();
         String bookletTag = PaperXmlTag.BOOKLET.getValue();
         String magazineTag = PaperXmlTag.MAGAZINE.getValue();
