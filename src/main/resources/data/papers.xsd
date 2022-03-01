@@ -46,7 +46,7 @@
             <extension base="tns:printedPress">
                 <sequence>
                     <element name="subscription-index" type="boolean" default="true"/>
-                    <element name="periodicity" type="duration" default="P7D"/>
+                    <element name="periodicity" default="P7D"/>
                 </sequence>
             </extension>
         </complexContent>
