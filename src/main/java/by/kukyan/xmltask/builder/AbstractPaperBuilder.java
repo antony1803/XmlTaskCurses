@@ -6,7 +6,6 @@ import by.kukyan.xmltask.exception.PaperException;
 import java.util.HashSet;
 import java.util.Set;
 
-
 public abstract class AbstractPaperBuilder {
     protected Set<AbstractPaper> papers;
 
