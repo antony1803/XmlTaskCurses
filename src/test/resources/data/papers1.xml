@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<papers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.kukyan.com/papers"
+        xsi:schemaLocation="http://www.kukyan.com/papers ../data/papers.xsd">
+
+    <magazine id="en-10002" printing-country="England">
+        <title>Times</title>
+        <size>50</size>
+        <monthly>true</monthly>
+        <coloured>true</coloured>
+        <type>magazine</type>
+        <printing-date>2022-01-01</printing-date>
+        <subscription-index>true</subscription-index>
+        <periodicity>P1M</periodicity>
+        <glossy>true</glossy>
+    </magazine>
+
+    <booklet id="by-10001" printing-country="Belarus">
+        <title>Орифлейм предлагает скидки</title>
+        <size>1</size>
+        <monthly>false</monthly>
+        <coloured>true</coloured>
+        <type>booklet</type>
+        <printing-date>2021-12-01</printing-date>
+        <glossy>true</glossy>
+    </booklet>
+</papers>

@@ -20,7 +20,7 @@ import javax.xml.validation.Validator;
 
 public class PaperXmlValidator {
     private static final Logger logger = LogManager.getLogger();
-    private static final String VALIDATION_SCHEME = "data.papers.xsd";
+    private static final String VALIDATION_SCHEME = "data/papers.xsd";
 
     public static boolean validateXml(String pathToXml) throws PaperException{
         ClassLoader loader = PaperXmlValidator.class.getClassLoader();
@@ -28,7 +28,7 @@ public class PaperXmlValidator {
         File scheme = new File(xsdPath.getFile());
         URL xmlPath = loader.getResource(pathToXml);
         String path = new File(xmlPath.getFile()).getPath();
-        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI);
+        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
         try{
             Schema schema = factory.newSchema(scheme);
