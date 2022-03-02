@@ -9,6 +9,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.time.LocalDate;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
@@ -81,6 +82,9 @@ public class PaperHandler extends DefaultHandler {
                 }
                 case MONTHLY -> {
                     currentPaper.setMonthly(Boolean.getBoolean(data));
+                }
+                case PRINTED -> {
+                    currentPaper.setPrintingDate(LocalDate.parse(data));
                 }
                 case COLOURED -> {
                     currentPaper.setColoured(Boolean.getBoolean(data));

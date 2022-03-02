@@ -11,6 +11,7 @@ public enum PaperXmlTag {
     TITLE("title"),
     SIZE("size"),
     MONTHLY("monthly"),
+    PRINTED("printing-date"),
     COLOURED("coloured"),
     TYPE("type"),
     SUBSCRIABLE("subscription-index"),

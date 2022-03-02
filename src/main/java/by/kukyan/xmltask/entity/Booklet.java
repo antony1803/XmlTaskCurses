@@ -1,5 +1,7 @@
 package by.kukyan.xmltask.entity;
 
+import java.time.LocalDate;
+
 public class Booklet extends AbstractPaper{
     private boolean isGlossy;
 
@@ -7,13 +9,13 @@ public class Booklet extends AbstractPaper{
         super();
     }
 
-    public Booklet(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, boolean glossy) {
-        super(newId, newCountry, newTitle, newSize, coloured, monthly);
+    public Booklet(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, LocalDate date, boolean glossy) {
+        super(newId, newCountry, newTitle, newSize, coloured, monthly, date);
         isGlossy = glossy;
     }
 
     public static Booklet setNewBooklet(AbstractPaper paper, boolean isGlossy){
-        return new Booklet(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), isGlossy);
+        return new Booklet(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), paper.getPrintingDate(), isGlossy);
     }
 
     public boolean isGlossy() {
@@ -36,6 +38,7 @@ public class Booklet extends AbstractPaper{
         if (second.getSize() != getSize()){return false;}
         if (isMonthly() != second.isMonthly()){return false;}
         if (isColoured() != second.isColoured()){return false;}
+        if(!getPrintingDate().equals(second.getPrintingDate())){return false;}
         if (isGlossy != second.isGlossy){return false;}
         return true;
     }

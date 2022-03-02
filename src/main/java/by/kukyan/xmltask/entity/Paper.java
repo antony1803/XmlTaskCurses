@@ -1,5 +1,7 @@
 package by.kukyan.xmltask.entity;
 
+import java.time.LocalDate;
+
 public class Paper extends AbstractPaper{
     private boolean isSubsriable;
     private Periodicity periodicity;
@@ -8,14 +10,14 @@ public class Paper extends AbstractPaper{
         super();
     }
 
-    public Paper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, Periodicity period, boolean subsriable){
-        super(newId, newCountry, newTitle, newSize, coloured, monthly);
+    public Paper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, LocalDate date, Periodicity period, boolean subsriable){
+        super(newId, newCountry, newTitle, newSize, coloured, monthly, date);
         isSubsriable = subsriable;
         periodicity =period;
     }
 
     public static Paper setNewPaper(AbstractPaper paper, Periodicity period, boolean subsriable){
-        return new Paper(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), period, subsriable);
+        return new Paper(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), paper.getPrintingDate(), period, subsriable);
     }
 
     public boolean isSubsriable() {
@@ -45,6 +47,7 @@ public class Paper extends AbstractPaper{
         if (!getTitle().equals(second.getTitle())){return false;}
         if (second.getSize() != getSize()){return false;}
         if (isMonthly() != second.isMonthly()){return false;}
+        if(!getPrintingDate().equals(second.getPrintingDate())){return false;}
         if (isColoured() != second.isColoured()){return false;}
         if (!periodicity.equals(second.periodicity)){return false;}
         if (isSubsriable != second.isSubsriable){return false;}
@@ -65,6 +68,7 @@ public class Paper extends AbstractPaper{
         sb.append(", title=").append(getTitle());
         sb.append(", size=").append(getSize());
         sb.append(", isMonthly='").append(isMonthly());
+        sb.append(", printed ").append(getPrintingDate());
         sb.append(", isColoured=").append(isColoured());
         sb.append(", isSubscriable=").append(isSubsriable);
         sb.append(", periodicity").append(periodicity);

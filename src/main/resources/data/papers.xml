@@ -9,6 +9,7 @@
         <monthly>true</monthly>
         <coloured>true</coloured>
         <type>paper</type>
+        <printing-date>2022-02-23</printing-date>
         <subscription-index>true</subscription-index>
         <periodicity>P1D</periodicity>
     </paper>
@@ -19,6 +20,7 @@
         <monthly>false</monthly>
         <coloured>false</coloured>
         <type>paper</type>
+        <printing-date>2022-01-31</printing-date>
         <subscription-index>false</subscription-index>
         <periodicity/>
     </paper>    
@@ -29,6 +31,7 @@
         <monthly>true</monthly>
         <coloured>true</coloured>
         <type>booklet</type>
+        <printing-date>2022-03-01</printing-date>
         <glossy>false</glossy>
     </booklet>
     
@@ -38,6 +41,7 @@
         <monthly>true</monthly>
         <coloured>true</coloured>
         <type>magazine</type>
+        <printing-date>2022-01-01</printing-date>
         <subscription-index>true</subscription-index>
         <periodicity>P1M</periodicity>
         <glossy>true</glossy>
@@ -49,6 +53,7 @@
         <monthly>false</monthly>
         <coloured>true</coloured>
         <type>booklet</type>
+        <printing-date>2021-12-01</printing-date>
         <glossy>true</glossy>
     </booklet>
     
@@ -58,6 +63,7 @@
         <monthly>true</monthly>
         <coloured>false</coloured>
         <type>paper</type>
+        <printing-date>2022-02-20</printing-date>
         <subscription-index>true</subscription-index>
         <periodicity>P7D</periodicity>
     </paper>

@@ -1,5 +1,7 @@
 package by.kukyan.xmltask.entity;
 
+import java.time.LocalDate;
+
 public abstract class AbstractPaper {
     private String id;
     private PrintingCountry country;
@@ -7,16 +9,18 @@ public abstract class AbstractPaper {
     private int size;
     private boolean isColoured;
     private boolean isMonthly;
+    private LocalDate printingDate;
 
     public AbstractPaper(){}
 
-    public AbstractPaper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly){
+    public AbstractPaper(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, LocalDate date){
         id = newId;
         country = newCountry;
         title = newTitle;
         size = newSize;
         isColoured = coloured;
         isMonthly = monthly;
+        printingDate = date;
     }
 
     public String getId() {
@@ -67,6 +71,14 @@ public abstract class AbstractPaper {
         isMonthly = monthly;
     }
 
+    public LocalDate getPrintingDate() {
+        return printingDate;
+    }
+
+    public void setPrintingDate(LocalDate printingDate) {
+        this.printingDate = printingDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {return true;}
@@ -79,6 +91,7 @@ public abstract class AbstractPaper {
         if(second.size != size){return false;}
         if(isMonthly != second.isMonthly){return false;}
         if(isColoured != second.isColoured){return false;}
+        if(!printingDate.equals(second.printingDate)){return false;}
        return true;
     }
 
@@ -87,6 +100,7 @@ public abstract class AbstractPaper {
         int result = id.hashCode();
         result += title.hashCode();
         result += size;
+        result += printingDate.hashCode();
         result += country.hashCode();
         result += isMonthly ? 1 : 0;
         result += isColoured ? 1 :0;
@@ -102,6 +116,7 @@ public abstract class AbstractPaper {
         sb.append(", size=").append(size);
         sb.append(", isMonthly='").append(isMonthly);
         sb.append(", isColoured=").append(isColoured);
+        sb.append(", printed ").append(printingDate);
         sb.append('}');
         return sb.toString();
     }

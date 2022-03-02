@@ -1,5 +1,7 @@
 package by.kukyan.xmltask.entity;
 
+import java.time.LocalDate;
+
 public class Magazine extends AbstractPaper {
     private boolean isSubsriable;
     private Periodicity periodicity;
@@ -9,15 +11,15 @@ public class Magazine extends AbstractPaper {
         super();
     }
 
-    public Magazine(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, boolean glossy, Periodicity period, boolean subsriable){
-        super(newId, newCountry, newTitle, newSize, coloured, monthly);
+    public Magazine(String newId, PrintingCountry newCountry, String newTitle, int newSize, boolean coloured, boolean monthly, LocalDate date, boolean glossy, Periodicity period, boolean subsriable){
+        super(newId, newCountry, newTitle, newSize, coloured, monthly, date);
         isSubsriable = subsriable;
         periodicity =period;
         isGlossy = glossy;
     }
 
     public static Magazine setNewMagazine(AbstractPaper paper, boolean isGlossy, Periodicity period, boolean subsriable){
-        return new Magazine(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), isGlossy, period, subsriable);
+        return new Magazine(paper.getId(), paper.getCountry(), paper.getTitle(), paper.getSize(), paper.isColoured(), paper.isMonthly(), paper.getPrintingDate(), isGlossy, period, subsriable);
     }
 
     public boolean isSubsriable() {
@@ -55,6 +57,7 @@ public class Magazine extends AbstractPaper {
         if(!getTitle().equals(second.getTitle())){return false;}
         if(second.getSize() != getSize()){return false;}
         if(isMonthly() != second.isMonthly()){return false;}
+        if(!getPrintingDate().equals(second.getPrintingDate())){return false;}
         if(isColoured() != second.isColoured()){return false;}
         if(!periodicity.equals(second.periodicity)){return false;}
         if(isSubsriable != second.isSubsriable){return false;}
@@ -76,6 +79,7 @@ public class Magazine extends AbstractPaper {
         sb.append(", title=").append(getTitle());
         sb.append(", size=").append(getSize());
         sb.append(", isMonthly='").append(isMonthly());
+        sb.append(", printed ").append(getPrintingDate());
         sb.append(", isColoured=").append(isColoured());
         sb.append(", isSubscriable=").append(isSubsriable);
         sb.append(", periodicity").append(periodicity);

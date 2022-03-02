@@ -13,9 +13,12 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 
 public class PaperStaxBuilder extends AbstractPaperBuilder{
     private static final Logger logger = LogManager.getLogger();
+    private static final char UNDERSCORE = '_';
+    private static final char HYPHEN = '-';
     private XMLInputFactory inputFactory;
 
     public PaperStaxBuilder(){
@@ -67,7 +70,7 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
             int type = reader.next();
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT -> {
-                    name = reader.getLocalName().toUpperCase().replace("-", "_");
+                    name = reader.getLocalName().toUpperCase().replace(HYPHEN, UNDERSCORE);
                     buildPaperProperties(reader, name, currentPaper);
                 }
                 case XMLStreamConstants.END_ELEMENT -> {
@@ -94,6 +97,9 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
             }
             case MONTHLY -> {
                 paper.setMonthly(Boolean.getBoolean(data));
+            }
+            case PRINTED -> {
+                paper.setPrintingDate(LocalDate.parse(data));
             }
             case COLOURED -> {
                 paper.setColoured(Boolean.getBoolean(data));

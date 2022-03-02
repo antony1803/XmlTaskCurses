@@ -15,6 +15,7 @@ import javax.xml.parsers.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 
 public class PaperDomBuilder extends AbstractPaperBuilder{
     private static final Logger logger = LogManager.getLogger();
@@ -61,6 +62,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         int size = Integer.parseInt(element.getAttribute(PaperXmlTag.SIZE.getValue()));
         boolean monthly = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.MONTHLY.getValue()));
         boolean coloured = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.COLOURED.getValue()));
+        LocalDate newDate = LocalDate.parse(element.getAttribute(PaperXmlTag.PRINTED.getValue()));
         switch (paperXmlTag){
             case MAGAZINE -> {
                 Magazine temp = Magazine.setNewMagazine(paper, false, Periodicity.valueOf(Periodicity.ONCEPERYEAR.getPeriodicity()), false);
@@ -92,6 +94,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         paper.setTitle(title);
         paper.setSize(size);
         paper.setMonthly(monthly);
+        paper.setPrintingDate(newDate);
         paper.setColoured(coloured);
         return paper;
     }
