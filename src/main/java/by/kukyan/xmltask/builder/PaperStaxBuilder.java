@@ -58,7 +58,8 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
 
         currentPaper.setId(reader.getAttributeValue(null, PaperXmlTag.ID.getValue()));
 
-        PrintingCountry country = PrintingCountry.valueOf(null, PaperXmlTag.COUNTRY.getValue());
+
+        PrintingCountry country = PrintingCountry.getCountryFromString(reader.getAttributeValue(null, PaperXmlTag.PRINTING_COUNTRY.getValue()));
         if (country == null) {
             currentPaper.setCountry(PrintingCountry.valueOf("BELARUS"));
         } else {
@@ -96,25 +97,25 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
                 paper.setSize(Integer.parseInt(data));
             }
             case MONTHLY -> {
-                paper.setMonthly(Boolean.getBoolean(data));
+                paper.setMonthly(Boolean.parseBoolean(data));
             }
-            case PRINTED -> {
+            case PRINTING_DATE -> {
                 paper.setPrintingDate(LocalDate.parse(data));
             }
             case COLOURED -> {
-                paper.setColoured(Boolean.getBoolean(data));
+                paper.setColoured(Boolean.parseBoolean(data));
             }
             case TYPE -> {
                 ;
             }
-            case SUBSCRIABLE -> {
+            case SUBSCRIPTION_INDEX -> {
                 if(paper instanceof Paper){
                     Paper temp = (Paper) paper;
-                    temp.setSubsriable(Boolean.getBoolean(data));
+                    temp.setSubsriable(Boolean.parseBoolean(data));
                 }
                 else if(paper instanceof Magazine){
                     Magazine temp = (Magazine)paper;
-                    temp.setSubsriable(Boolean.getBoolean(data));
+                    temp.setSubsriable(Boolean.parseBoolean(data));
                 }
             }
             case PERIODICITY -> {
@@ -130,11 +131,11 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
             case GLOSSY -> {
                 if(paper instanceof Booklet){
                     Booklet temp = (Booklet) paper;
-                    temp.setGlossy(Boolean.getBoolean(data));
+                    temp.setGlossy(Boolean.parseBoolean(data));
                 }
                 else if(paper instanceof Magazine){
                     Magazine temp = (Magazine)paper;
-                    temp.setGlossy(Boolean.getBoolean(data));
+                    temp.setGlossy(Boolean.parseBoolean(data));
                 }
             }
             default -> {

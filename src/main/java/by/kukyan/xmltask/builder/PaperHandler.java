@@ -81,25 +81,25 @@ public class PaperHandler extends DefaultHandler {
                     currentPaper.setSize(Integer.parseInt(data));
                 }
                 case MONTHLY -> {
-                    currentPaper.setMonthly(Boolean.getBoolean(data));
+                    currentPaper.setMonthly(Boolean.parseBoolean(data));
                 }
-                case PRINTED -> {
+                case PRINTING_DATE -> {
                     currentPaper.setPrintingDate(LocalDate.parse(data));
                 }
                 case COLOURED -> {
-                    currentPaper.setColoured(Boolean.getBoolean(data));
+                    currentPaper.setColoured(Boolean.parseBoolean(data));
                 }
                 case TYPE -> {
                     ;
                 }
-                case SUBSCRIABLE -> {
+                case SUBSCRIPTION_INDEX -> {
                     if(currentPaper instanceof Paper){
                         Paper temp = (Paper) currentPaper;
-                        temp.setSubsriable(Boolean.getBoolean(data));
+                        temp.setSubsriable(Boolean.parseBoolean(data));
                     }
                     else if(currentPaper instanceof Magazine){
                         Magazine temp = (Magazine)currentPaper;
-                        temp.setSubsriable(Boolean.getBoolean(data));
+                        temp.setSubsriable(Boolean.parseBoolean(data));
                     }
                 }
                 case PERIODICITY -> {
@@ -115,11 +115,11 @@ public class PaperHandler extends DefaultHandler {
                 case GLOSSY -> {
                     if(currentPaper instanceof Booklet){
                         Booklet temp = (Booklet) currentPaper;
-                        temp.setGlossy(Boolean.getBoolean(data));
+                        temp.setGlossy(Boolean.parseBoolean(data));
                     }
                     else if(currentPaper instanceof Magazine){
                         Magazine temp = (Magazine)currentPaper;
-                        temp.setGlossy(Boolean.getBoolean(data));
+                        temp.setGlossy(Boolean.parseBoolean(data));
                     }
                 }
             }

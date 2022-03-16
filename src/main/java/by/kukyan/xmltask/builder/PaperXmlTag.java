@@ -6,15 +6,15 @@ public enum PaperXmlTag {
     BOOKLET("booklet"),
     MAGAZINE("magazine"),
     ID("id"),
-    COUNTRY("printing-country"),
+    PRINTING_COUNTRY("printing-country"),
 
     TITLE("title"),
     SIZE("size"),
     MONTHLY("monthly"),
-    PRINTED("printing-date"),
+    PRINTING_DATE("printing-date"),
     COLOURED("coloured"),
     TYPE("type"),
-    SUBSCRIABLE("subscription-index"),
+    SUBSCRIPTION_INDEX("subscription-index"),
     PERIODICITY("periodicity"),
     GLOSSY("glossy");
 

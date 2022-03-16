@@ -21,6 +21,17 @@ public class PaperStaxBuilderTest {
     public void setUp(){
         expected = new HashSet<>();
 
+        expected = new HashSet<>();
+
+        expected.add(new Booklet("by-10001",
+                PrintingCountry.BELARUS,
+                "Орифлейм предлагает скидки",
+                1,
+                true,
+                false,
+                LocalDate.parse("2021-12-01"),
+                true));
+
         expected.add(new Magazine("en-10002",
                 PrintingCountry.ENGLAND,
                 "Times",
@@ -30,15 +41,6 @@ public class PaperStaxBuilderTest {
                 LocalDate.parse("2022-01-01"),
                 true,
                 Periodicity.ONCEPERMONTH,
-                true));
-
-        expected.add(new Booklet("by-10001",
-                PrintingCountry.BELARUS,
-                "Орифлейм предлагает скидки",
-                1,
-                false,
-                true,
-                LocalDate.parse("2021-12-01"),
                 true));
     }
 

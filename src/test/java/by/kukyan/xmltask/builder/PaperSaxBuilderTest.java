@@ -21,6 +21,15 @@ public class PaperSaxBuilderTest {
     public void setUp(){
         expected = new HashSet<>();
 
+        expected.add(new Booklet("by-10001",
+                PrintingCountry.BELARUS,
+                "Орифлейм предлагает скидки",
+                1,
+                true,
+                false,
+                LocalDate.parse("2021-12-01"),
+                true));
+
         expected.add(new Magazine("en-10002",
                 PrintingCountry.ENGLAND,
                 "Times",
@@ -32,24 +41,16 @@ public class PaperSaxBuilderTest {
                 Periodicity.ONCEPERMONTH,
                 true));
 
-        expected.add(new Booklet("by-10001",
-                PrintingCountry.BELARUS,
-                "Орифлейм предлагает скидки",
-                1,
-                false,
-                true,
-                LocalDate.parse("2021-12-01"),
-                true));
     }
 
     @Test
     public void testBuildSetPapers(){
         AbstractPaperBuilder builder;
-        Set<AbstractPaper> actual = null;
+        Set<AbstractPaper> actual = new HashSet<>();
         try{
             builder = PaperBuilderFactory.getInstance().createPaperBuilder(ParserType.SAX);
             builder.buildPapers(XML_FILE);
-            actual = builder.getPapers();
+            actual.addAll(builder.getPapers());
         } catch (PaperException e) {
             fail(e.getMessage(), e);
         }

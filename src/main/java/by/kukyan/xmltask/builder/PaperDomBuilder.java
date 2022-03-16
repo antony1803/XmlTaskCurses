@@ -57,18 +57,18 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         AbstractPaper paper = new Paper();
 
         String id = element.getAttribute(PaperXmlTag.ID.toString());
-        PrintingCountry country = PrintingCountry.valueOf(getElementTextContent(element, paperXmlTag.COUNTRY.getValue().toUpperCase()));
+        PrintingCountry country = PrintingCountry.valueOf(getElementTextContent(element, paperXmlTag.PRINTING_COUNTRY.getValue().toUpperCase()));
         String title = element.getAttribute(PaperXmlTag.TITLE.toString());
         int size = Integer.parseInt(element.getAttribute(PaperXmlTag.SIZE.getValue()));
         boolean monthly = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.MONTHLY.getValue()));
         boolean coloured = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.COLOURED.getValue()));
-        LocalDate newDate = LocalDate.parse(element.getAttribute(PaperXmlTag.PRINTED.getValue()));
+        LocalDate newDate = LocalDate.parse(element.getAttribute(PaperXmlTag.PRINTING_DATE.getValue()));
         switch (paperXmlTag){
             case MAGAZINE -> {
                 Magazine temp = Magazine.setNewMagazine(paper, false, Periodicity.valueOf(Periodicity.ONCEPERYEAR.getPeriodicity()), false);
                 boolean glossy = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.GLOSSY.getValue()));
                 Periodicity periodicity = Periodicity.valueOf(getElementTextContent(element, paperXmlTag.PERIODICITY.getValue()));
-                boolean sub = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.SUBSCRIABLE.getValue()));
+                boolean sub = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.SUBSCRIPTION_INDEX.getValue()));
                 temp.setGlossy(glossy);
                 temp.setPeriodicity(periodicity);
                 temp.setSubsriable(sub);
@@ -77,7 +77,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
             case PAPER -> {
                 Paper temp = new Paper();
                 Periodicity periodicity = Periodicity.valueOf(getElementTextContent(element, paperXmlTag.PERIODICITY.getValue()));
-                boolean sub = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.SUBSCRIABLE.getValue()));
+                boolean sub = Boolean.parseBoolean(element.getAttribute(PaperXmlTag.SUBSCRIPTION_INDEX.getValue()));
                 temp.setPeriodicity(periodicity);
                 temp.setSubsriable(sub);
                 paper = temp;

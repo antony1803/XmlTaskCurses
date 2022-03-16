@@ -53,7 +53,7 @@ public class Magazine extends AbstractPaper {
         if (!(o instanceof Magazine)){return false;}
         Magazine second = (Magazine) o;
         if (getCountry() != second.getCountry()){return false;}
-        if(getId() != second.getId()){return false;}
+        if(!getId().equals(second.getId())){return false;}
         if(!getTitle().equals(second.getTitle())){return false;}
         if(second.getSize() != getSize()){return false;}
         if(isMonthly() != second.isMonthly()){return false;}
@@ -82,8 +82,8 @@ public class Magazine extends AbstractPaper {
         sb.append(", printed ").append(getPrintingDate());
         sb.append(", isColoured=").append(isColoured());
         sb.append(", isSubscriable=").append(isSubsriable);
-        sb.append(", periodicity").append(periodicity);
-        sb.append(", isGlossy").append(isGlossy);
+        sb.append(", periodicity=").append(periodicity);
+        sb.append(", isGlossy=").append(isGlossy);
         sb.append('}');
         return sb.toString();
     }

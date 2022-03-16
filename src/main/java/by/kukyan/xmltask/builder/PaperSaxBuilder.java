@@ -16,6 +16,10 @@ import java.net.URL;
 public class PaperSaxBuilder extends AbstractPaperBuilder{
     private static final Logger logger = LogManager.getLogger();
 
+    public PaperSaxBuilder(){
+        super();
+    }
+
     @Override
     public void buildPapers(String path) throws PaperException {
         try{
@@ -25,6 +29,7 @@ public class PaperSaxBuilder extends AbstractPaperBuilder{
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
             XMLReader reader = parser.getXMLReader();
+
             PaperHandler handler = new PaperHandler();
 
             reader.setContentHandler(handler);

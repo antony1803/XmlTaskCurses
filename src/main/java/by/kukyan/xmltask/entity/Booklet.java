@@ -33,7 +33,7 @@ public class Booklet extends AbstractPaper{
         if (!(o instanceof Booklet)) {return false;}
         Booklet second = (Booklet) o;
         if (getCountry() != second.getCountry()){return false;}
-        if (getId() != second.getId()){return false;}
+        if (!getId().equals(second.getId())){return false;}
         if (!getTitle().equals(second.getTitle())){return false;}
         if (second.getSize() != getSize()){return false;}
         if (isMonthly() != second.isMonthly()){return false;}
@@ -58,7 +58,7 @@ public class Booklet extends AbstractPaper{
         sb.append(", size=").append(getSize());
         sb.append(", isMonthly='").append(isMonthly());
         sb.append(", isColoured=").append(isColoured());
-        sb.append(", isGlossy").append(isGlossy);
+        sb.append(", isGlossy=").append(isGlossy);
         sb.append('}');
         return sb.toString();
     }
