@@ -24,7 +24,7 @@ public enum PaperXmlTag {
         value = newValue;
     }
 
-    public String getValue(){
+    public String getTagName(){
         return value;
     }
 }

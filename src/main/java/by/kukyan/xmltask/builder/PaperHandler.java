@@ -38,12 +38,12 @@ public class PaperHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes){
-        if(qName.equals(PaperXmlTag.PAPER.getValue()) ||
-            qName.equals(PaperXmlTag.BOOKLET.getValue())||
-            qName.equals(PaperXmlTag.MAGAZINE.getValue())){
+        if(qName.equals(PaperXmlTag.PAPER.getTagName()) ||
+            qName.equals(PaperXmlTag.BOOKLET.getTagName())||
+            qName.equals(PaperXmlTag.MAGAZINE.getTagName())){
 
-            currentPaper = qName.equals(PaperXmlTag.PAPER.getValue()) ? new Paper() :
-                    (qName.equals(PaperXmlTag.MAGAZINE.getValue()) ? new Magazine() : new Booklet());
+            currentPaper = qName.equals(PaperXmlTag.PAPER.getTagName()) ? new Paper() :
+                    (qName.equals(PaperXmlTag.MAGAZINE.getTagName()) ? new Magazine() : new Booklet());
 
             currentPaper.setId(attributes.getValue(0));
             currentPaper.setCountry(PrintingCountry.getCountryFromString(attributes.getValue(1)));
@@ -58,9 +58,9 @@ public class PaperHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName){
-        String paperTag = PaperXmlTag.PAPER.getValue();
-        String bookletTag = PaperXmlTag.BOOKLET.getValue();
-        String magazineTag = PaperXmlTag.MAGAZINE.getValue();
+        String paperTag = PaperXmlTag.PAPER.getTagName();
+        String bookletTag = PaperXmlTag.BOOKLET.getTagName();
+        String magazineTag = PaperXmlTag.MAGAZINE.getTagName();
 
         if(qName.equals(paperTag) || qName.equals(bookletTag) || qName.equals(magazineTag)){
             papers.add(currentPaper);

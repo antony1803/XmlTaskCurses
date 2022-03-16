@@ -17,8 +17,7 @@
 
     <booklet id="by-10001" printing-country="Belarus">
         <title>Орифлейм предлагает скидки</title>
-        <size>1</size>
-        <monthly>false</monthly>
+        <size>1</size>        <monthly>false</monthly>
         <coloured>true</coloured>
         <type>booklet</type>
         <printing-date>2021-12-01</printing-date>

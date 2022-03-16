@@ -38,7 +38,7 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
                 int type = reader.next();
                 if(type == XMLStreamConstants.START_ELEMENT){
                     name = reader.getLocalName();
-                    if(name.equals(PaperXmlTag.PAPER.getValue()) || name.equals(PaperXmlTag.MAGAZINE.getValue()) || name.equals(PaperXmlTag.BOOKLET.getValue())){
+                    if(name.equals(PaperXmlTag.PAPER.getTagName()) || name.equals(PaperXmlTag.MAGAZINE.getTagName()) || name.equals(PaperXmlTag.BOOKLET.getTagName())){
                         AbstractPaper paper = buildPaper(reader);
                         papers.add(paper);
                     }
@@ -53,13 +53,13 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
     private AbstractPaper buildPaper(XMLStreamReader reader) throws XMLStreamException {
 
         String temp = reader.getLocalName();
-        AbstractPaper currentPaper = temp.equals(PaperXmlTag.PAPER.getValue()) ? new Paper()
-                : temp.equals(PaperXmlTag.BOOKLET.getValue()) ? new Booklet() : new Magazine();
+        AbstractPaper currentPaper = temp.equals(PaperXmlTag.PAPER.getTagName()) ? new Paper()
+                : temp.equals(PaperXmlTag.BOOKLET.getTagName()) ? new Booklet() : new Magazine();
 
-        currentPaper.setId(reader.getAttributeValue(null, PaperXmlTag.ID.getValue()));
+        currentPaper.setId(reader.getAttributeValue(null, PaperXmlTag.ID.getTagName()));
 
 
-        PrintingCountry country = PrintingCountry.getCountryFromString(reader.getAttributeValue(null, PaperXmlTag.PRINTING_COUNTRY.getValue()));
+        PrintingCountry country = PrintingCountry.getCountryFromString(reader.getAttributeValue(null, PaperXmlTag.PRINTING_COUNTRY.getTagName()));
         if (country == null) {
             currentPaper.setCountry(PrintingCountry.valueOf("BELARUS"));
         } else {
@@ -76,8 +76,8 @@ public class PaperStaxBuilder extends AbstractPaperBuilder{
                 }
                 case XMLStreamConstants.END_ELEMENT -> {
                     name = reader.getLocalName();
-                    if (name.equals(PaperXmlTag.PAPER.getValue()) || name.equals(PaperXmlTag.MAGAZINE.getValue())
-                    || name.equals(PaperXmlTag.BOOKLET.getValue())) {
+                    if (name.equals(PaperXmlTag.PAPER.getTagName()) || name.equals(PaperXmlTag.MAGAZINE.getTagName())
+                    || name.equals(PaperXmlTag.BOOKLET.getTagName())) {
                         return currentPaper;
                     }
                 }

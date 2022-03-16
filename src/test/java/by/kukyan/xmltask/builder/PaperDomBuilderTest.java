@@ -15,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 public class PaperDomBuilderTest {
-    private static final String XML_FILE = "src/test/resources/data/papers1.xml";
+    private static final String XML_FILE = "data/papers1.xml";
     private Set<AbstractPaper> expected;
 
     @BeforeClass
