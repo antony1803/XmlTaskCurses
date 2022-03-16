@@ -2,11 +2,7 @@ package by.kukyan.xmltask.builder;
 
 import by.kukyan.xmltask.entity.*;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.time.LocalDate;
@@ -15,10 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PaperHandler extends DefaultHandler {
-    private static Logger logger = LogManager.getLogger();
 
     private final Set<AbstractPaper> papers;
-    private EnumSet<PaperXmlTag> xmlTags;
+    private final EnumSet<PaperXmlTag> xmlTags;
 
     private AbstractPaper currentPaper;
     private PaperXmlTag currentXmlTag;
@@ -69,7 +64,7 @@ public class PaperHandler extends DefaultHandler {
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    public void characters(char[] ch, int start, int length){
         String data = new String(ch, start, length);
 
         if(currentXmlTag != null){
@@ -89,9 +84,7 @@ public class PaperHandler extends DefaultHandler {
                 case COLOURED -> {
                     currentPaper.setColoured(Boolean.parseBoolean(data));
                 }
-                case TYPE -> {
-                    ;
-                }
+                case TYPE -> {}
                 case SUBSCRIPTION_INDEX -> {
                     if(currentPaper instanceof Paper){
                         Paper temp = (Paper) currentPaper;

@@ -32,7 +32,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
     }
 
     @Override
-    public void buildPapers(String path) throws PaperException {
+    public void buildPapers(String path){
         try{
             ClassLoader loader = getClass().getClassLoader();
             URL resource = loader.getResource(path);
@@ -47,7 +47,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         }
     }
 
-    public void createPapers(Element root, PaperXmlTag paperXmlTag) throws PaperException {
+    public void createPapers(Element root, PaperXmlTag paperXmlTag){
         NodeList paperList = root.getElementsByTagName(paperXmlTag.getTagName());
         for (int i = 0; i < paperList.getLength(); i++) {
             Element el = (Element) paperList.item(i);
@@ -56,7 +56,7 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         }
     }
 
-    private AbstractPaper buildPaper(Element element, PaperXmlTag paperXmlTag) throws PaperException {
+    private AbstractPaper buildPaper(Element element, PaperXmlTag paperXmlTag){
 
         AbstractPaper paper = new Paper();
 
@@ -107,9 +107,5 @@ public class PaperDomBuilder extends AbstractPaperBuilder{
         NodeList nList = element.getElementsByTagName(elementName);
         Node node = nList.item(0);
         return node.getTextContent();
-    }
-
-    private String getTextContent(Element element, String elementName){
-        return getContentFromTag(element, elementName).strip();
     }
 }
